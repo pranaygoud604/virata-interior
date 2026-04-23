@@ -41,8 +41,24 @@
 
     /* HERO */
     .hero {
-        height: 80vh;
-        min-height: 500px;
+        height: auto;
+        min-height: 70vh;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy {
+        text-align: center;
+    }
+
+    .hero-panel {
+        justify-content: center;
+    }
+
+    .hero-trust {
+        justify-content: center;
     }
 
     .hero-cta {
