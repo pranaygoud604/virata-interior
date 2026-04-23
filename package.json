@@ -1,0 +1,32 @@
+{
+  "name": "virata-website",
+  "version": "1.0.0",
+  "description": "Luxury interior and exterior design website - Production ready",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'Testing...'",
+    "lighthouse": "npx lighthouse http://localhost:8000 --view",
+    "accessibility-check": "npx axe-core",
+    "serve": "npx python3 -m http.server 8000"
+  },
+  "keywords": [
+    "interior design",
+    "exterior design",
+    "architecture",
+    "luxury design",
+    "design system",
+    "responsive website"
+  ],
+  "author": "Virata Interior & Exterior",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "lighthouse": "^9.6.1",
+    "axe-core": "^4.4.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
