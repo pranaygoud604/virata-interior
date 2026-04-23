@@ -515,3 +515,306 @@ window.virata = {
     trackEvent,
     applyTheme
 };
+// ========================================
+// 3D IMMERSIVE DESIGN - THREE.JS INTEGRATION
+// ========================================
+
+class ThreeDScene {
+    constructor(canvasId, options = {}) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas || !window.THREE) return;
+
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true, antialias: true });
+        
+        this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.scene.background = new THREE.Color(0xf8f6f1);
+        
+        this.camera.position.z = 5;
+        this.objects = [];
+        this.animate = this.animate.bind(this);
+        
+        // Handle resize
+        window.addEventListener('resize', () => this.onWindowResize());
+        this.animate();
+    }
+
+    onWindowResize() {
+        const width = this.canvas.clientWidth;
+        const height = this.canvas.clientHeight;
+        this.camera.aspect = width / height;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(width, height);
+    }
+
+    animate() {
+        requestAnimationFrame(this.animate);
+        
+        // Rotate objects
+        this.objects.forEach(obj => {
+            if (obj.rotation) {
+                obj.rotation.x += 0.003;
+                obj.rotation.y += 0.005;
+            }
+        });
+        
+        this.renderer.render(this.scene, this.camera);
+    }
+}
+
+// Hero 3D Background
+function initHero3D() {
+    const canvas = document.getElementById('hero-3d-bg');
+    if (!canvas || !window.THREE) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    scene.background = null;
+    camera.position.z = 6;
+
+    // Create floating cubes
+    const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+    const material = new THREE.MeshPhongMaterial({ 
+        color: 0xC9A96E,
+        emissive: 0x332200,
+        shininess: 100
+    });
+    
+    const cube1 = new THREE.Mesh(geometry, material);
+    const cube2 = new THREE.Mesh(geometry, material.clone());
+    const cube3 = new THREE.Mesh(geometry, material.clone());
+    
+    cube1.position.set(-2, 1, 0);
+    cube2.position.set(2, -1, 0);
+    cube3.position.set(0, 2, -2);
+    
+    cube1.rotation.set(0.3, 0.5, 0.2);
+    cube2.rotation.set(0.4, 0.6, 0.3);
+    cube3.rotation.set(0.2, 0.4, 0.1);
+    
+    scene.add(cube1, cube2, cube3);
+
+    // Lighting
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+
+    const light2 = new THREE.DirectionalLight(0xC9A96E, 0.4);
+    light2.position.set(-5, -5, 5);
+    scene.add(light2);
+
+    // Animation
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        cube1.rotation.x += 0.003;
+        cube1.rotation.y += 0.005;
+        cube2.rotation.x -= 0.002;
+        cube2.rotation.y -= 0.004;
+        cube3.rotation.x += 0.004;
+        cube3.rotation.z += 0.003;
+        
+        renderer.render(scene, camera);
+    }
+
+    // Handle resize
+    function onWindowResize() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', onWindowResize);
+    animate();
+}
+
+// About Section 3D Cube
+function initAbout3D() {
+    const canvas = document.getElementById('about-3d-scene');
+    if (!canvas || !window.THREE) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    scene.background = new THREE.Color(0xf8f6f1);
+    camera.position.z = 4;
+
+    // Create textured cube
+    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    
+    // Create materials with different colors for each face
+    const materials = [
+        new THREE.MeshPhongMaterial({ color: 0xd4a574 }),
+        new THREE.MeshPhongMaterial({ color: 0xc99966 }),
+        new THREE.MeshPhongMaterial({ color: 0xB8956A }),
+        new THREE.MeshPhongMaterial({ color: 0xA68463 }),
+        new THREE.MeshPhongMaterial({ color: 0x95735C }),
+        new THREE.MeshPhongMaterial({ color: 0xD4C4B0 })
+    ];
+    
+    const cube = new THREE.Mesh(geometry, materials);
+    scene.add(cube);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.002;
+        cube.rotation.y += 0.003;
+        renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', onWindowResize);
+    animate();
+}
+
+// Service Icon 3D Spheres
+function initService3D(canvasId, color) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !window.THREE) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    scene.background = new THREE.Color(0xfbf8f5);
+    camera.position.z = 2.5;
+
+    // Create spinning sphere
+    const geometry = new THREE.IcosahedronGeometry(1, 4);
+    const material = new THREE.MeshPhongMaterial({ 
+        color: color || 0xC9A96E,
+        emissive: 0x332200,
+        shininess: 100
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Lighting
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.7);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+
+    const light2 = new THREE.DirectionalLight(0xC9A96E, 0.3);
+    light2.position.set(-5, -5, 5);
+    scene.add(light2);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        sphere.rotation.x += 0.004;
+        sphere.rotation.y += 0.006;
+        renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', onWindowResize);
+    animate();
+}
+
+// Project 3D Pyramids with gradient
+function initProject3D(canvasId, colorHex) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !window.THREE) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    scene.background = null;
+    camera.position.z = 3;
+
+    // Create pyramid
+    const geometry = new THREE.TetrahedronGeometry(1.5, 0);
+    const material = new THREE.MeshPhongMaterial({ 
+        color: colorHex || 0xd4a574,
+        emissive: 0x332200,
+        shininess: 80
+    });
+    const pyramid = new THREE.Mesh(geometry, material);
+    scene.add(pyramid);
+
+    // Lighting
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+
+    const light2 = new THREE.DirectionalLight(0xC9A96E, 0.4);
+    light2.position.set(-5, -5, 5);
+    scene.add(light2);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        pyramid.rotation.x += 0.003;
+        pyramid.rotation.y += 0.005;
+        pyramid.rotation.z += 0.002;
+        renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', onWindowResize);
+    animate();
+}
+
+// Initialize all 3D scenes when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize main scenes
+    if (window.THREE) {
+        initHero3D();
+        initAbout3D();
+        
+        // Service icons
+        initService3D('service-3d-1', 0xC9A96E);
+        initService3D('service-3d-2', 0xD4C4B0);
+        initService3D('service-3d-3', 0xB8956A);
+        
+        // Project cards
+        initProject3D('project-3d-1', 0xe8dcc8);
+        initProject3D('project-3d-2', 0xf0ebe5);
+        initProject3D('project-3d-3', 0xe8e4df);
+        initProject3D('project-3d-4', 0xefebe6);
+        initProject3D('project-3d-5', 0xe5e0db);
+    }
+});

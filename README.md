@@ -1,8 +1,8 @@
-# Virata Interior & Exterior Design - Website
+# Virata Interior & Exterior Design - 3D Immersive Website
 
-A luxury, modern, and minimal design system implementation for a premium interior and exterior design firm.
+A luxury, modern, and immersive 3D interactive design system for a premium interior and exterior design firm. Now featuring cutting-edge Three.js 3D visualization technology.
 
-## 🎨 Design System Overview
+## 🎨 Design System Overview + 3D Features
 
 This website is built on a complete, production-ready design system featuring:
 
@@ -13,6 +13,19 @@ This website is built on a complete, production-ready design system featuring:
 - **Responsive Design:** Mobile-first approach with 3 breakpoints (480px, 1024px, 1440px)
 - **Dark Mode:** Complete dark mode support with theme toggle
 - **Accessibility:** WCAG AA compliant design and code
+
+### ✨ NEW - 3D Immersive Features
+
+- **Three.js Integration:** Advanced 3D graphics rendering engine
+- **Interactive 3D Elements:**
+  - Hero Section: Animated 3D rotating cubes with luxury gold coloring
+  - About Section: 3D textured cube with multi-face materials
+  - Service Icons: 3D spinning icosphere geometries with real-time rotation
+  - Project Cards: 3D pyramid/tetrahedron shapes representing architectural projects
+- **Dynamic Lighting:** Directional and ambient lighting for realistic 3D effects
+- **Responsive 3D Canvas:** Automatically adjusts to screen size and orientation
+- **Smooth Animations:** Continuous rotation and float animations for engaging visuals
+- **SVG 3D Images:** Pre-rendered 3D SVG graphics for branding elements
 
 ## 📂 Project Structure
 
@@ -89,6 +102,17 @@ xdg-open index.html
 - ✅ **Accessibility** - WCAG AA compliant, keyboard navigation
 - ✅ **Performance Optimized** - Fast loading, optimized assets
 - ✅ **SEO Ready** - Semantic HTML, meta tags, structured data
+
+### 🌐 3D Immersive Features
+- ✨ **Three.js 3D Engine** - Professional 3D graphics rendering
+- ✨ **Interactive 3D Hero** - Animated rotating gold cubes in hero section
+- ✨ **3D About Section** - Textured rotating cube showcasing luxury materials
+- ✨ **Service Icon 3D** - Spinning icosphere shapes with dynamic lighting
+- ✨ **Project Card 3D** - Pyramid geometries representing architectural projects
+- ✨ **Dynamic Lighting** - Directional and ambient lighting for depth perception
+- ✨ **Responsive Canvas** - 3D elements adapt to all screen sizes
+- ✨ **Hardware Acceleration** - GPU-accelerated rendering for smooth performance
+- ✨ **SVG 3D Assets** - Vector-based 3D visual elements included
 
 ### Pages Included
 1. **Homepage** - Hero, trust indicators, services, projects, testimonials
@@ -374,6 +398,58 @@ Google Analytics integration ready. Add your GA code to:
   gtag('config', 'GA_MEASUREMENT_ID');
 </script>
 ```
+
+## 🎬 3D Implementation Guide
+
+### Three.js 3D Scenes
+
+The website uses Three.js library for creating interactive 3D visualizations. Here's what's included:
+
+#### 1. Hero Section 3D Background (`initHero3D()`)
+- **Elements:** 3 animated cubes with luxury gold coloring (#C9A96E)
+- **Animation:** Continuous rotation on all axes
+- **Lighting:** Directional and accent lighting for dramatic effect
+- **Canvas ID:** `hero-3d-bg`
+
+#### 2. About Section 3D Cube (`initAbout3D()`)
+- **Elements:** Multi-colored cube showcasing material palette
+- **Faces:** 6 different luxury material colors
+- **Animation:** Smooth rotation for presentation
+- **Canvas ID:** `about-3d-scene`
+
+#### 3. Service Icons 3D Spheres (`initService3D()`)
+- **Elements:** Icosphere geometries (high-poly spheres)
+- **Count:** 3 unique spheres for each service
+- **Colors:** Luxury color palette (#C9A96E, #D4C4B0, #B8956A)
+- **Canvas IDs:** `service-3d-1`, `service-3d-2`, `service-3d-3`
+
+#### 4. Project Cards 3D Pyramids (`initProject3D()`)
+- **Elements:** Tetrahedron pyramids
+- **Count:** 5 projects with unique color variations
+- **Animation:** Rotating pyramids representing architectural projects
+- **Canvas IDs:** `project-3d-1` through `project-3d-5`
+
+### 3D Assets
+
+SVG-based 3D visual assets included:
+- `3d-interior-design.svg` - Isometric interior cube
+- `3d-architecture.svg` - Building/pyramid structure
+- `3d-landscape.svg` - Spheres with landscape elements
+- `3d-luxury-living.svg` - Complex 3D box structure
+
+### Browser Support
+
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ All modern mobile browsers
+
+### Performance
+
+- GPU-accelerated rendering
+- 60 FPS animations on most devices
+- Automatic canvas resize handling
+- Optimized lighting calculations
 
 ## 🔐 Security
 

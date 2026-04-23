@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css/styles.css?v=2.0">
     <link rel="stylesheet" href="css/responsive.css?v=2.0">
     
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r158/three.min.js"></script>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230F172A' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' fill='%23C9A96E' text-anchor='middle' font-family='serif'>V</text></svg>">
 </head>
@@ -58,7 +61,7 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-bg"></div>
+        <canvas id="hero-3d-bg" class="hero-bg-3d"></canvas>
         <div class="hero-content hero-inner container">
             <div class="hero-copy">
                 <div class="hero-badge">Luxury Design Studio</div>
@@ -143,8 +146,8 @@
     <section class="about-preview">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">
-                    <div class="placeholder-image">Signature Interior Design</div>
+                <div class="about-image section-3d">
+                    <canvas id="about-3d-scene" class="scene-canvas"></canvas>
                 </div>
                 <div class="about-content">
                     <p class="accent-label">ABOUT VIRATA</p>
@@ -168,21 +171,27 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
+                    <div class="service-icon-3d">
+                        <canvas id="service-3d-1" class="icon-canvas"></canvas>
+                    </div>
                     <h3 class="service-title">Interior Design</h3>
                     <p class="service-desc">Complete interior design services including space planning, material selection, custom furniture, and full project management for residential and commercial spaces.</p>
                     <a href="pages/services.html" class="btn-link">Explore Services →</a>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🌿</div>
+                    <div class="service-icon-3d">
+                        <canvas id="service-3d-2" class="icon-canvas"></canvas>
+                    </div>
                     <h3 class="service-title">Exterior Design</h3>
                     <p class="service-desc">Landscape architecture, outdoor living spaces, facade design, and sustainable exterior solutions that enhance your property's curb appeal and functionality.</p>
                     <a href="pages/services.html" class="btn-link">Explore Services →</a>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">✨</div>
+                    <div class="service-icon-3d">
+                        <canvas id="service-3d-3" class="icon-canvas"></canvas>
+                    </div>
                     <h3 class="service-title">Turnkey Projects</h3>
                     <p class="service-desc">Full-service design and construction management. We coordinate all aspects of your project, ensuring seamless execution from design to completion.</p>
                     <a href="pages/services.html" class="btn-link">Explore Services →</a>
@@ -202,7 +211,7 @@
             
             <div class="projects-grid">
                 <div class="project-card featured-large">
-                    <div class="project-image" style="background: linear-gradient(135deg, #e8dcc8 0%, #d4c4b0 100%);"></div>
+                    <canvas id="project-3d-1" class="project-canvas"></canvas>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <div class="project-header">
@@ -215,7 +224,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #f0ebe5 0%, #e5ddd5 100%);"></div>
+                    <canvas id="project-3d-2" class="project-canvas"></canvas>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">COMMERCIAL</p>
@@ -224,7 +233,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #e8e4df 0%, #ddd6ce 100%);"></div>
+                    <canvas id="project-3d-3" class="project-canvas"></canvas>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">EXTERIOR</p>
@@ -233,7 +242,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #efebe6 0%, #e4dcd4 100%);"></div>
+                    <canvas id="project-3d-4" class="project-canvas"></canvas>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">LANDSCAPE</p>
@@ -242,7 +251,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #e5e0db 0%, #dbd5ce 100%);"></div>
+                    <canvas id="project-3d-5" class="project-canvas"></canvas>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">RESIDENTIAL</p>

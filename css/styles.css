@@ -1428,3 +1428,92 @@ section {
 .visible {
     display: block !important;
 }
+/* ==================== 
+   3D IMMERSIVE DESIGN
+   ==================== */
+
+.hero-bg-3d {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.scene-canvas,
+.icon-canvas,
+.project-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.section-3d {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f6f1 0%, #ffffff 100%);
+}
+
+.service-icon-3d {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-lg);
+    perspective: 1200px;
+}
+
+.icon-canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card .project-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.project-card .project-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.3), rgba(201, 169, 110, 0.2));
+}
+
+.project-card .project-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+/* 3D Animation Keyframes */
+@keyframes rotate3d {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+@keyframes float3d {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-rotate-3d {
+    animation: rotate3d 8s infinite linear;
+}
+
+.animate-float-3d {
+    animation: float3d 4s ease-in-out infinite;
+}
