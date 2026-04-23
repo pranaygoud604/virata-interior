@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=1.2">
-    <link rel="stylesheet" href="css/responsive.css?v=1.2">
+    <link rel="stylesheet" href="css/styles.css?v=2.0">
+    <link rel="stylesheet" href="css/responsive.css?v=2.0">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230F172A' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' fill='%23C9A96E' text-anchor='middle' font-family='serif'>V</text></svg>">
@@ -59,13 +59,25 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-bg"></div>
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);"></div>
+            <div class="hero-slide" style="background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);"></div>
+        </div>
         <div class="hero-content">
-            <p class="accent-label">LUXURY INTERIOR DESIGN</p>
-            <h1 class="hero-title">Crafting Spaces That Inspire</h1>
-            <p class="hero-subtitle">We create bespoke interior and exterior designs that transform homes into extraordinary living experiences. Every project is a masterpiece of craftsmanship and vision.</p>
+            <div class="hero-badge">Luxury Design Studio</div>
+            <p class="accent-label">TRANSFORMING SPACES INTO SANCTUARIES</p>
+            <h1 class="hero-title">Where Design <br>Meets Passion</h1>
+            <p class="hero-subtitle">Premium interior and exterior design for discerning clients. From concept to completion, we create spaces that reflect your unique vision and lifestyle.</p>
             <div class="hero-cta">
-                <button class="btn btn-primary btn-lg">Start Your Project</button>
-                <button class="btn btn-secondary btn-lg">View Our Work</button>
+                <button class="btn btn-primary btn-lg">Schedule Consultation</button>
+                <button class="btn btn-secondary btn-lg">View Portfolio</button>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll to explore</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
             </div>
         </div>
     </section>
@@ -149,52 +161,65 @@
     <!-- FEATURED PROJECTS -->
     <section class="featured-projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header">
+                <p class="accent-label">OUR PORTFOLIO</p>
+                <h2>Featured Collections</h2>
+                <p class="section-subtitle">Curated projects showcasing our design excellence and creative vision</p>
+            </div>
             
             <div class="projects-grid">
                 <div class="project-card featured-large">
+                    <div class="project-image" style="background: linear-gradient(135deg, #e8dcc8 0%, #d4c4b0 100%);"></div>
                     <div class="project-overlay"></div>
                     <div class="project-content">
-                        <p class="project-category">RESIDENTIAL</p>
-                        <h3 class="project-title">Modern Villa</h3>
+                        <div class="project-header">
+                            <p class="project-category">RESIDENTIAL</p>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Contemporary Luxury Villa</h3>
+                        <p class="project-desc">A stunning residential transformation combining modern aesthetics with timeless elegance</p>
                     </div>
                 </div>
                 
                 <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f0ebe5 0%, #e5ddd5 100%);"></div>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">COMMERCIAL</p>
-                        <h3 class="project-title">Corporate Office</h3>
+                        <h3 class="project-title">Elite Office Space</h3>
                     </div>
                 </div>
                 
                 <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #e8e4df 0%, #ddd6ce 100%);"></div>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">EXTERIOR</p>
-                        <h3 class="project-title">Rooftop Lounge</h3>
+                        <h3 class="project-title">Sky Terrace Design</h3>
                     </div>
                 </div>
                 
                 <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #efebe6 0%, #e4dcd4 100%);"></div>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">LANDSCAPE</p>
-                        <h3 class="project-title">Garden Escape</h3>
+                        <h3 class="project-title">Botanical Haven</h3>
                     </div>
                 </div>
                 
                 <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #e5e0db 0%, #dbd5ce 100%);"></div>
                     <div class="project-overlay"></div>
                     <div class="project-content">
                         <p class="project-category">RESIDENTIAL</p>
-                        <h3 class="project-title">Apartment Redesign</h3>
+                        <h3 class="project-title">Urban Sanctuary</h3>
                     </div>
                 </div>
             </div>
             
             <div class="projects-cta">
-                <button class="btn btn-secondary btn-lg">View All Projects</button>
+                <button class="btn btn-secondary btn-lg">Explore Full Portfolio</button>
             </div>
         </div>
     </section>
