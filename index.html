@@ -3,10 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Transform your space with Virata's luxury interior and exterior design. 500+ completed projects, 12+ years expertise. Book consultation.">
-    <meta name="keywords" content="interior design, exterior design, luxury homes, villa design, architecture">
-    <meta name="author" content="Virata Interior & Exterior">
-    <meta name="theme-color" content="#0F172A">
+    <meta name="description" content="Virata - Architecture & Interior Design Studio. Where Art Lives Here. Transform spaces with luxury design.">
+    <meta name="keywords" content="architecture, interior design, luxury design, home design, architectural services">
+    <meta name="author" content="Virata Design Studio">
+    <meta name="theme-color" content="#1B4D3E">
+    
+    <title>Virata - Architecture & Design Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">VIRATA</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <svg class="botanical-svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+                <!-- Botanical leaf design -->
+                <path d="M 200 100 Q 180 180 200 280 Q 220 180 200 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                <path d="M 200 120 Q 170 180 200 280" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+                <path d="M 200 120 Q 230 180 200 280" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+                <circle cx="200" cy="280" r="8" fill="rgba(255,255,255,0.15)"/>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-tag">WELCOME TO</p>
+                <h1 class="hero-title">Art <br> Lives <br> Here</h1>
+                <p class="hero-subtitle">OF LIVING IS PERFECTED.</p>
+                <button class="btn btn-light">Explore Our Work</button>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="assets/images/hero-interior.jpg" alt="Interior Design" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'">
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                <path d="M10 3v10M10 13l3-3M10 13l-3-3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Virata Studio</h2>
+                    <p>We are a team of architects and interior designers dedicated to transforming spaces into masterpieces. With over 12 years of experience, we blend timeless design principles with contemporary innovation.</p>
+                    <p>Every project is a collaboration—where your vision becomes our mission. We specialize in luxury residential, commercial, and hospitality design.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat">
+                            <h3>12+</h3>
+                            <p>Years</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2000+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/about-image.jpg" alt="About Us" onerror="this.style.background='linear-gradient(135deg, #3D5A50 0%, #2C3E50 100%)'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="20" y="30" width="60" height="50" stroke="currentColor" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="80" stroke="currentColor" stroke-width="2"/>
+                            <line x1="20" y1="55" x2="80" y2="55" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Interior Design</h3>
+                    <p>Transform your interior spaces with innovative design solutions that reflect your personality and enhance functionality.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <path d="M30 70 L50 30 L70 70 Z" stroke="currentColor" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Architecture</h3>
+                    <p>Complete architectural design from concept to execution. Creating buildings that stand as monuments of design excellence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2"/>
+                            <path d="M50 30 Q70 50 50 70 Q30 50 50 30" fill="currentColor" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Landscape Design</h3>
+                    <p>Create stunning outdoor environments that complement your living spaces and connect you with nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Featured Works</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item large">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-1.jpg" alt="Contemporary Villa" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Contemporary Villa Retreat</h3>
+                        <p>Residential</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-2.jpg" alt="Modern Office" onerror="this.style.background='linear-gradient(135deg, #3D5A50 0%, #2C3E50 100%)'">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Modern Office Space</h3>
+                        <p>Commercial</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-3.jpg" alt="Luxury Penthouse" onerror="this.style.background='linear-gradient(135deg, #4A6E63 0%, #3D5A50 100%)'">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Luxury Penthouse</h3>
+                        <p>Residential</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-4.jpg" alt="Designer Showroom" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Designer Showroom</h3>
+                        <p>Retail</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-cta">
+                <button class="btn btn-dark">View All Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Project Type">
+                        <textarea placeholder="Tell us about your project" rows="6"></textarea>
+                        <button type="submit" class="btn btn-dark">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><strong>Address:</strong> 123 Design Street, Creative City, CC 12345</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Email:</strong> hello@virata.design</p>
+                    <p><strong>Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Virata Design Studio. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
     
     <title>Virata Interior & Exterior Design | Premium Design Services</title>
     

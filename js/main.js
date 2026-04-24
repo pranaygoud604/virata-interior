@@ -1,15 +1,137 @@
 // ========================================
 // VIRATA - MAIN JAVASCRIPT
-// Interactivity, Animations, Dark Mode
+// Navigation, Scroll Effects, Interactions
 // ========================================
 
 // ==================== 
-// 1. THEME / DARK MODE
+// SMOOTH SCROLL NAVIGATION
 // ====================
 
-const THEME_KEY = 'virata-theme';
-const DARK_THEME = 'dark';
-const LIGHT_THEME = 'light';
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});
+
+// ==================== 
+// NAVBAR SCROLL EFFECT
+// ====================
+
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Add shadow on scroll
+    if (currentScroll > 50) {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.boxShadow = 'none';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// ==================== 
+// UPDATE ACTIVE NAV LINK
+// ====================
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ==================== 
+// MOBILE MENU TOGGLE
+// ====================
+
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+}
+
+// ==================== 
+// FORM SUBMISSION
+// ====================
+
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+    });
+}
+
+// ==================== 
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ====================
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe service cards and portfolio items
+document.querySelectorAll('.service-card, .portfolio-item').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(element);
+});
+
+// ==================== 
+// RESPONSIVE MOBILE MENU
+// ====================
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.style.display === 'none') {
+        navMenu.style.display = 'flex';
+    }
+});
+
+// Initialize
+if (window.innerWidth <= 768) {
+    navMenu.style.display = 'none';
+}
+
 
 // Initialize theme on page load
 function initializeTheme() {
